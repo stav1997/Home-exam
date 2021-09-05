@@ -7,7 +7,9 @@ var User = function(user){
     this.last_connection = user.last_connection;
 };
 
+
 User.create = function (newUser, result) {
+
     conn.db.query("INSERT INTO users set ?", newUser, function (err, res) {
         if(err) {
             console.log("error: ", err);

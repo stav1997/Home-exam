@@ -8,7 +8,6 @@ app.use('/assets', express.static("assets"));
 app.use('/addUser', express.static("views"));
 const services = require('../../server/services/render')
 
-// app.use('/api/v1/users', router)
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 

@@ -12,37 +12,40 @@
     <h2>Lets add a new user!</h2>
 </div>
 
+<%if(typeof msg != 'undefined'){%>
+    <script>alert("Id already exiests!")</script>
+<%}%> 
+
+<%if(typeof success != 'undefined' ){%>
+    <script>alert("New user was added successfully!")</script>
+<%}%> 
+
+
 <form action= "/api/users" method="POST" id="add_user">
 
     <div class="new_user">
 
         <div class="form-group">
             <label for="id" class="text-light"> ID</label>
-   
-            <input type="text" id="id" name="id" value="" placeholder="000000000" pattern="[0-9]{9}">
+            <input type="text" id="id" name="id" value="" placeholder="000000000" pattern="[0-9]{9}" title="must enter a valid id, contains exactly 9 digits" required>
         </div>
         <div class="form-group">
             <label for="name" class="text-light"> Full Name</label>
-            <input type="text" name="name" value="" placeholder="John Doe" pattern="^(\w\w+)\s(\w+)$">
+            <input type="text" name="name" value="" placeholder="John Doe" pattern="^(\w\w+)\s(\w+)$" title="must enter a full name" required>
         </div>
         <div class="form-group">
             <label for="email" class="text-light"> Email</label>
-            <input type="text" name="email" value="" placeholder="example@gmail.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+            <input type="text" name="email" value="" placeholder="example@gmail.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" title="must enter a valid email, contains only small letters, example@gmail.com" required>
         </div>
         <div class="form-group">
             <label for="last_connection" class="text-light"> Last connection</label>
-            <input type="date" name="last_connection">
+            <input type="date" name="last_connection" required>
         </div>
     </div>
     <div class="form-group">
-        <button type="submit" class="btn text-dark" onclick="add_click();">Save</button>
+        <button type="submit" class="btn text-dark">Save</button>
     </div>
 </form>
-<script>
 
-    function add_click(){
-        alert("User has been added seccessfuly!");
-    }
-   
-</script>
+
 

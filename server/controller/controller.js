@@ -16,11 +16,20 @@ exports.create = function(req, res) {
         if(Object.keys(req.body).length === 0){
             res.status(400).send({ error:true, message: 'Please provide all required field' });
         }else{
-            User.create(new_user, function(err, user) {
-            if (err)
-                res.send(err);
-            res.redirect('/addUser');//redirecting to the form
-            });
+          User.findById(new_user.id, function(err, result){
+            if(result.length!=0){
+              console.log('ID already exist');
+              res.render('addUser', {msg: 'ID already exist'});
+            }
+            else{
+              User.create(new_user, function(err, user) {
+                if (err)
+                    res.send(err);
+                    res.render('addUser', {success: 'User was added seccessfuly'});
+                  });
+            }
+          })
+            
     }
 };
 
@@ -41,7 +50,7 @@ exports.update = function(req, res) {
             if (err)
                 res.send(err);
             res.redirect('/');//redirecting to home
-        });
+              });
     }
 };
 exports.delete = function(req, res) {

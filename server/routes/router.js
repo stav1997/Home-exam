@@ -8,6 +8,4 @@ router.get('/addUser', services.addUserRoutes);
 
 router.get('/updateUser', services.updateUserRoutes);
 
-// router.get('/deleteUser', services.deleteUserRoutes);
-
 module.exports = router;

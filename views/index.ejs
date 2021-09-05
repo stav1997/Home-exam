@@ -11,11 +11,16 @@
     </div>
 </div>
 
+
 <div class="box-nav d-flex-justify-between">
   <a href="/addUser">
     <span class="text-gradient">New User<i class="fas fa-user"></i></span>
   </a>
 </div>
+
+<%if(typeof success != 'undefined' ){%>
+  <script>alert("New user was added successfully!")</script>
+<%}%> 
 
 <div class="container mt-5" id="divTable">
     <table id= "users" data-toggle="table" data-detail-view="true"
