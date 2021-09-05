@@ -16,10 +16,7 @@ exports.addUserRoutes = (req, res)=>{
 }
 
 exports.updateUserRoutes = (req, res)=>{
-    console.log("in update user route")
     let userid = req.query.id
-    console.log(userid)
-
     axios.get('http://localhost:3000/api/user', {params:{id:userid}})
     .then(function(userdata){
         console.log(userdata.data[0].last_connection);

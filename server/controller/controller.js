@@ -1,6 +1,6 @@
 const conn = require('../../server/database/connection');
 //db connection
-conn();
+// conn();
 const User = require("../../Users/user.model");
 
 exports.findAll = function(req, res) {

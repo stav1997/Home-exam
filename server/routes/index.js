@@ -1,6 +1,5 @@
 const express = require ('express');
 const router = express.Router();
-const conn = require('../../server/database/connection');
 const app = express();
 const controller = require('../../server/controller/controller')
 app.set("view engine", "ejs");
